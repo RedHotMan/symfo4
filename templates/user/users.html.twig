@@ -1,0 +1,16 @@
+<h1>Members</h1>
+<ul>
+    {% for user in users %}
+        <li>
+            {{ user.fullname }} \
+            {{ user.age }} \
+            {{  user.race.name }}
+            <a href={{ path('show_user', {'id': user.id}) }}>Show</a>
+            <a href={{ path('edit_user', {'id': user.id}) }}>Edit</a>
+            <a href={{ path('delete_user', {'id': user.id, '_token': csrf_token('delete_user')}) }}>Delete</a>
+            {#<a href="/users/{{ user.id }}">Show</a> \
+            <a href="/edit/{{ user.id }}">edit</a> \
+            <a href="/delete/{{ user.id }}">deleter</a>#}
+        </li>
+    {% endfor %}
+</ul>
